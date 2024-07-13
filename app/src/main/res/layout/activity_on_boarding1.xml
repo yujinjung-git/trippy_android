@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="#f3f3f3"
+>
+
+    <ImageView
+            android:id="@+id/logored"
+            android:layout_width="115dp"
+            android:layout_height="38dp"
+            android:src="@drawable/trippylogored"
+
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintVertical_bias="0.2"/>
+    <!--            android:layout_alignParentEnd="true" android:layout_alignParentStart="true"-->
+    <EditText
+            android:layout_width="372dp"
+            android:layout_height="56dp"
+            android:id="@+id/pwedit" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/edittext_stroke_background"
+            app:layout_constraintVertical_bias="0.448"
+            android:textColorHint="@color/gray"
+            android:inputType="textPassword"
+            android:textSize="14sp"
+            android:paddingLeft="27dp"
+            android:hint="비밀번호" app:layout_constraintHorizontal_bias="0.5"/>
+    <EditText
+            android:layout_width="372dp"
+            android:layout_height="56dp"
+
+            android:textSize="14sp"
+            android:id="@+id/idedit" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/edittext_stroke_background"
+            app:layout_constraintVertical_bias="0.37"
+            android:hint="아이디"
+            android:paddingLeft="27dp"
+            android:textColorHint="@color/gray"
+            app:layout_constraintHorizontal_bias="0.505"/>
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:src="@drawable/eye_slash" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.88"
+               app:layout_constraintVertical_bias="0.45"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="로그인"
+              android:id="@+id/logintext"
+              android:textColor="@color/white"
+              android:textSize="14sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:elevation="2dp"
+              app:layout_constraintVertical_bias="0.526"/>
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:elevation="1dp"
+               android:src="@drawable/rec" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.526"
+               app:layout_constraintHorizontal_bias="0.5" android:id="@+id/loginbutton"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="로그인 상태 유지"
+              android:textSize="12sp"
+              android:textColor="@color/gray" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.605"
+              app:layout_constraintHorizontal_bias="0.12"/>
+    <ImageView android:layout_width="16dp" android:layout_height="16dp"
+               android:src="@drawable/circle"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_bias="0.605" app:layout_constraintHorizontal_bias="0.05"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:id="@+id/findid"
+              android:text="계정 찾기"
+              android:textSize="15sp"
+              android:textColor="@color/gray" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.7"
+              app:layout_constraintHorizontal_bias="0.21"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:id="@+id/join"
+              android:text="비밀번호 찾기"
+              android:textSize="15sp"
+              android:textColor="@color/gray" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.7"
+              app:layout_constraintHorizontal_bias="0.52"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:id="@+id/findpw"
+              android:text="회원가입"
+              android:textSize="15sp"
+              android:textColor="@color/gray" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.7"
+              app:layout_constraintHorizontal_bias="0.8"/>
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:src="@drawable/vector_7" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.699"
+               app:layout_constraintHorizontal_bias="0.66"/>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:src="@drawable/vector_7" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.699"
+               app:layout_constraintHorizontal_bias="0.36"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="간편 로그인" app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.498"
+              app:layout_constraintVertical_bias="0.785"/>
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:src="@drawable/line_12" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.78"
+               app:layout_constraintHorizontal_bias="0.8"/>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:src="@drawable/line_12" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.78"
+               app:layout_constraintHorizontal_bias="0.2"/>
+
+    <ImageView android:layout_width="40dp" android:layout_height="40dp"
+               android:src="@drawable/kakaologin" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.849"
+               app:layout_constraintHorizontal_bias="0.293"/>
+    <ImageView android:layout_width="40dp" android:layout_height="40dp"
+               android:src="@drawable/google" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.849"
+               app:layout_constraintHorizontal_bias="0.708"/>
+    <ImageView android:layout_width="40dp" android:layout_height="40dp"
+               android:src="@drawable/naver" app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.85"
+               app:layout_constraintHorizontal_bias="0.5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
