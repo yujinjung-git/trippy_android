@@ -1,10 +1,12 @@
 package com.example.trippy_android.User.Login
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.trippy_android.MainActivity
 import com.example.trippy_android.User.UserRetrofitService
 import com.example.trippy_android.databinding.ActivityLoginBinding
 
@@ -17,6 +19,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         binding.loginbutton.setOnClickListener {
             login()
+            val intent= Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding.here.setOnClickListener{

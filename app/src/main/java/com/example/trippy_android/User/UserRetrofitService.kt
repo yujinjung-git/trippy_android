@@ -83,7 +83,7 @@ class UserRetrofitService(private val context: Context) {
 
                         }
 
-                        else -> Log.e("Token refresh error", resp.message)
+                        else -> Log.e("Token refresh error", resp.code)
                     }
                 } else {
                     val errorBody = response.errorBody()?.string()
