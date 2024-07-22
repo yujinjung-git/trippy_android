@@ -1,5 +1,6 @@
 package com.example.trippy_android.User.Login
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,7 +19,15 @@ class LoginActivity : AppCompatActivity(), LoginView {
             login()
         }
 
+        binding.here.setOnClickListener{
+            loginExtension()
+        }
 
+
+    }
+    private fun init(){
+        binding.idedit.text = null
+        binding.pwedit.text = null
     }
 
     private fun login(){
@@ -31,7 +40,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         val memberId:String=binding.idedit.text.toString()
         val password:String=binding.pwedit.text.toString()
         saveId(memberId)
-        val usService = UserRetrofitService()
+        val usService = UserRetrofitService(this)
         usService.setLoginView(this)
         usService.login(LoginReq(memberId, password))
 
@@ -58,10 +67,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         return spf!!.getString("jwt","0")
     }
 
-    private fun init(){
-        binding.idedit.text = null
-        binding.pwedit.text = null
-    }
+
 
 
     override fun onLoginSuccess(code: String, jwt: String) {
@@ -71,6 +77,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 saveJwt(jwt)
                 init()
                 Log.d("hi", getJwt()!!)
+                Log.d("JWT", "Stored JWT in SharedPreferences: ${getJwt()!!}")
+                Log.d("JWT", "Stored JWT in CustomCookieJar: ${CustomCookieJar(this).getJwtToken()!!}")
 
             }
             else->{
@@ -91,6 +99,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 }
             }
         }
+    }
+    private fun loginExtension() {
+        val usService = UserRetrofitService(this)
+        usService.loginExtension()
     }
 
 

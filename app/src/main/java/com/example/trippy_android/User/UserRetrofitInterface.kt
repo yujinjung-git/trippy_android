@@ -11,4 +11,7 @@ interface UserRetrofitInterface {
     @POST("/api/member/login")
     fun login(@Body loginReq: LoginReq): Call<UserResponse.LoginResponse>
 
+    @POST("/api/member/login-extension")
+    fun loginExtension(): Call<UserResponse.LoginResponse>
+
 }
