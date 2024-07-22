@@ -2,12 +2,15 @@ package com.example.trippy_android.User
 
 
 import android.content.Context
+import android.content.Intent
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
+import android.widget.Toast
 import com.example.trippy_android.User.Login.CustomCookieJar
+import com.example.trippy_android.User.Login.LoginActivity
 import com.example.trippy_android.User.Login.LoginReq
 import com.example.trippy_android.User.Login.LoginView
 import okhttp3.Cookie
@@ -88,6 +91,12 @@ class UserRetrofitService(private val context: Context) {
                 } else {
                     val errorBody = response.errorBody()?.string()
                     Log.e("Token refresh failed", "Unsuccessful response: $errorBody")
+                    if (errorBody != null && errorBody.contains("MEMBER4018")) {
+                        val intent = Intent(context, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        context.startActivity(intent)
+                        Toast.makeText(context, "재로그인하세요", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
 
