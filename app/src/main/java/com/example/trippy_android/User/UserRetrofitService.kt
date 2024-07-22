@@ -10,6 +10,9 @@ import android.util.Log
 import com.example.trippy_android.User.Login.CustomCookieJar
 import com.example.trippy_android.User.Login.LoginReq
 import com.example.trippy_android.User.Login.LoginView
+import okhttp3.Cookie
+import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
 
 
 class UserRetrofitService(private val context: Context) {
@@ -29,6 +32,10 @@ class UserRetrofitService(private val context: Context) {
         userService.login(loginRequest).enqueue(object : Callback<UserResponse.LoginResponse> {
             override fun onResponse(call: Call<UserResponse.LoginResponse>, response: Response<UserResponse.LoginResponse>) {
                 if (response.isSuccessful) {
+
+                    val url = "https://trippy-api.store/".toHttpUrl()
+                    val cookies = response.headers().values("Set-Cookie").mapNotNull { Cookie.parse(url, it) }
+                    cookieJar.saveFromResponse(url, cookies)
                     val resp: UserResponse.LoginResponse? = response.body()
                     if (resp != null) {
                         when (val code = resp.code) {
@@ -66,17 +73,14 @@ class UserRetrofitService(private val context: Context) {
                 Log.d("jwtjwtjwtjwt", cookieJar.getJwtToken().toString())
                 if (response.isSuccessful) {
                     val resp = response.body()!!
+                    Log.d("UserRetrofitService", "Response body: $resp")
                     when (val code = resp.code) {
                         "COMMON200" -> {
                             Log.d("Token refreshed", "New access token: ${resp.result.accessToken}")
 
                             // CustomCookieJar에 저장된 JWT를 가져와서 "Bearer " 형식으로 저장
-                            val jwt = cookieJar.getJwtToken()
-                            if (jwt != null) {
-                                cookieJar.addJwtToken(jwt)
-                            } else {
-                                Log.e("Token refresh error", "JWT not found in CustomCookieJar")
-                            }
+                            cookieJar.addJwtToken(resp.result.accessToken)
+
                         }
 
                         else -> Log.e("Token refresh error", resp.message)
